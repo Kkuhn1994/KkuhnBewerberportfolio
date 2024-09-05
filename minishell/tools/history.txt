@@ -1,0 +1,86 @@
+ls
+ls -a
+ls -la
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls -la
+ls -la
+ls -a
+ls -a
+ls -la
+ls -h
+ls -h -a -la
+ls -h -a -X
+ls -h -a -X
+ls -h -a
+ls -la
+cd ..
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat
+< Makefile | cat > out
+ls -la
+< Makefile | cat > out
+< Makefile | cat > out > out2
+< Makefile | cat > out | ls -la > out2
+< Makefile | cat > out | ls -la > out2
+< main.c | cat > out | ls -la > out2
+< main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la
+< src/main.c | cat > out | ls -la
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+la -la
+ls -la
+ls -la -X 
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< Makefile | cat > out | ls -la > out2
+cd ..
