@@ -1,0 +1,608 @@
+ls
+ls -a
+ls -la
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls -la
+ls -la
+ls -a
+ls -a
+ls -la
+ls -h
+ls -h -a -la
+ls -h -a -X
+ls -h -a -X
+ls -h -a
+ls -la
+cd ..
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat
+< Makefile | cat > out
+ls -la
+< Makefile | cat > out
+< Makefile | cat > out > out2
+< Makefile | cat > out | ls -la > out2
+< Makefile | cat > out | ls -la > out2
+< main.c | cat > out | ls -la > out2
+< main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la
+< src/main.c | cat > out | ls -la
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+la -la
+ls -la
+ls -la -X 
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< src/main.c | cat > out | ls -la > out2
+< Makefile | cat > out | ls -la > out2
+cd ..
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+Hallo
+Hallo
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | cat
+<< LIMITER | wc
+<< LIMITER | wc
+<< LIMITER | wc
+<< LIMITER | wc
+<< LIMITER | wc
+<< LIMITER | wc
+<< LIMITER | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc -l > out
+< Makefile | wc -a > out
+< Makefile | wc -la > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | cat > out
+<< make | cat > out
+<< make | wc > out
+<< make | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat > hallo
+< Makefile | cat > hallo
+< Makefile | cat > hallo
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | wc
+< Makefile | wc
+< Makefile | cat
+< Makefile | cat | wc
+clear
+exit
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat
+< Makefile | cat
+< Makefile | wc
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc > out
+< Makefile | cat > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc | wc > out
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | cat
+
+< Makefile | cat
+< Makefile | wc
+< Makefile | wc | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc | wc
+< Makefile | wc | wc | cat
+< Makefile | wc | wc | cat > out
+< Makefile | wc | wc | cat
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | cat > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc
+< Makefile | cat > out
+< Makefile | cat 
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc > out
+< Makefile | wc
+< Makefile | wc
+< Makefile | cat
+< Makefile | cat
+< Makefile | wc
+< Makefile | wc | wc
+< Makefile | wc | wc
+< Makefile | grep make | cat
+< Makefile | grep make
+< Makefile | wc Makefile
+< Makefile | wc Makefile
+< Makefile | wc Makefile
+< Makefile | wc Makefile
+< Makefile | wc Makefile
+< Makefile | wc Makefile
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc
+< Makefile | wc
+< Makefile | wc
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | wc
+<< LIMITER | cat | grep a | wc > out
+<< LIMITER | cat | grep a | wc > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+gwiuegwegw
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+ca
+clear
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat > out
+<< LIMITER | cat
+<< LIMITER | cat > out
+<< LIMITER | cat
+<< LIMITER | wc
+clrst
+clrst
+clear
+<< LIMITER | wc
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | cat > out
+<< LIMITER | cat
+<< LIMITER | wc
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+<< LIMITER | wc > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+<< LIMIT | wc > out
+<< LIMIT | wc > out
+<< LIMIT | wc > out
+<< LIMIT | wc > out
+<< LIMIT | wc > out
+<< LIMIT | wc > out
+<< LIMIT | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+echo $?
+echo $?
+< Makefile | wc > out
+echo $?
+< Makefile | wc > out
+echo $?
+< Makefile | wc > out
+echo $?
+< Makefile | wc > out
+echo $?
+< Makefile | wc > out
+echo $?
+< Makefile | wc | cat > out
+echo $?
+< Makefile | wggrgc | cat > out
+echo $?
+< Makefile | wggrgc | ewewt > out
+echo $?
+< Makefile | wggrgc | ewewt > out
+echo $?
+< Makefile | cat  > out
+<< LIMIT | cat > out
+<< LIMIT | cat
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+<< LIMIT | cat
+<< LIMIT | cat
+ls -aaaaaa -la -s
+< Makefile | cat > out | Makefile | wc > out2
+< Makefile | cat > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | cat > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | wc > out
+ls -la | cat
+ls -la | cat
+< Makefile | wc > out
+< Makefile | wc > out
+< Makefile | cat > out
+echo Hallo > out
+ls -la | cat
+ls -la | cat > out
+ls -la | cat > out
+ls -la | cat > out
+ls -la | cat > out
+ls -la | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | wc > out
+ls -la > out
+ls -la | cat > out
+ls -la | cat > out
+ls -la | cat > out
+ls -la | cat > out
+ls -la | cat > out
+ls -la > out
+ls -la > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+"ls -la" > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la > out
+ls -la 
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+< Makefile | cat > out
+<< Makefile | cat > out
+<< Makefile | cat > out
+<< Makefile | cat > out
+ls -la > out
+ls -la > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la  > out
+ls -la  > out
+ls -la | cat > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | wc > out
+ls -la | cat | wc > out
+ls -la | cat | cat > out
+ls -la | grep "heilbronn" | cat > out
+ls -la | grep "." | cat > out
+< Makefile | cat
+< Makefile | cat > out
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat > out
+< Makefile | cat > out
+exit
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+cat < Makefile
+cat < Makefile
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | cat
+< Makefile | ls -la
+< Makefile | ls -la
+< Makefile | ls -la
+< Makefile | ls -la
