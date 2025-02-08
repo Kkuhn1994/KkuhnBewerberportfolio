@@ -1,11 +1,11 @@
 # KkuhnBewerberportfolio
 
+Branch master 
 
+Flutter Projekt
 
-C# Projekt: Generieren und formatieren eines Sudokus. Bisher nur die Lösung.
-            In Planung : Löschen von Zahlen , Prüfung der Lösung
-            separate Darstellung von Rätsel und Lösung .
-            Generierung von mehreren Rätseln auf einmal.
+Branch main
+
 
 
 Hackathon im urban innovation hub in Heilbronn: 
