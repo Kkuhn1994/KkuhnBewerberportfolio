@@ -1,0 +1,139 @@
+ls -la > out
+cat < wecuy
+echo $?
+cat < wecuy
+echo $?
+VAR=1
+VAR=1
+VAR=1
+VAR=1
+echo VAR
+echo VAR
+echo VAR
+echo VAR
+echo -n VAR
+echo -n VAR
+echo -n VAR
+echo -n VAR
+VAR=1
+VAR=1
+VAR=1
+echo $VAR
+cat < uvrveg
+echo $?
+efef | cat < Makefile
+efef | cat < Makefile
+efef | cat < Makefile
+echo $?
+efef | cat < Makefile
+efef | cat < Makefile
+echo $?
+efef
+efef | cat < Makefile
+efef | cat < Makefile > out
+./minishell 
+env
+exit
+echo $?
+./minishell 
+env
+env
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+exit
+exit
+exit
+exit
+ls -la > out
+ls
+cat out 
+cat | cat | ls
+cat | cat | ls
+lea
+clear
+ls
+ls -la > out
+ls
+cat out 
+clear
+lsa
+ls -la > out
+ls
+clear
+ls
+ls -la > out
+ls -la > out
+ls
+ls -la
+ls -la > out
+clear
+ls
+ls -la
+cat Makefile
+exit
+cat | cat | ls
+cat < Makefile
+cat < Makefile
+cat < Makefile
+cat | cat | ls
+cat | cat | ls
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat | cat | ls
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+exit
+cat < Makefile > out
+exit
+cat < Makefile > out
+ls -la
+cd ..
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+exirt
+exit
+cat < Makefile > out
+exit
+cat < Makefile > out
+cat < Makefile > out
+cat < Makefile > out
+cat | cat | ls
+ls -la | wc > out
+ls -la > out
+ls -la | wc
+ls -la | wc
+ls -la | wc > out
+ls -la | wc > out
+
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+cat | cat | ls
+cat | cat | ls
+ls | wc > out
+cat out 
+exit
