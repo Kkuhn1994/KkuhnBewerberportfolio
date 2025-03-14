@@ -6,7 +6,8 @@ Flutter Projekt
 
 Branch main
 
-
+Docker Projekt to Dos:
+           clean up, setup reverse Proxy for FTP
 
 Hackathon im urban innovation hub in Heilbronn: 
 
