@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:48:05 by kkuhn             #+#    #+#             */
-/*   Updated: 2025/04/03 21:13:03 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(char *s1)
 
 	i = 0;
 	size = ft_strlen(s1) + 1;
-	stringcopy = (char *) MALLOC (size);
+	stringcopy = (char *) ft_malloc (size);
 	if (stringcopy == 0)
 		return (0);
 	while (s1[i] != 0)

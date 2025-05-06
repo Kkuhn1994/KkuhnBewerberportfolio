@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:01:08 by kkuhn             #+#    #+#             */
-/*   Updated: 2025/03/18 20:06:34 by kkuhn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*copy_s;
 
-	copy_s = (char *) MALLOC (ft_strlen(s) + 1);
+	copy_s = (char *) ft_malloc (ft_strlen(s) + 1);
 	if (copy_s == 0)
 		return (0);
 	i = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:40:27 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/06 15:29:56 by kkuhn            ###   ########.fr       */
+/*   Updated: 2025/04/20 14:12:32 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # define PI 3.14159265358979323846
 # define EPSILON 0.00001
 
-static int			g_globalid = 0;
-
 typedef struct s_koord
 {
 	double			x;
@@ -32,26 +30,26 @@ typedef struct s_koord
 	double			w;
 }					t_xyzvektor;
 
-typedef struct point_data
+typedef struct s_point_data
 {
 	t_xyzvektor		position;
 	t_xyzvektor		velocity;
 }					t_point;
 
-typedef struct environment
+typedef struct s_environment
 {
 	t_xyzvektor		wind;
 	t_xyzvektor		gravity;
 }					t_env;
 
-typedef struct ray
+typedef struct s_ray
 {
 	t_xyzvektor		origin;
 	t_xyzvektor		direction;
 
 }					t_ray;
 
-typedef struct material
+typedef struct s_material
 {
 	uint32_t		color;
 	double			ambient;
@@ -67,6 +65,7 @@ typedef struct s_shape
 	int				id;
 	t_xyzvektor		origin;
 	double			**default_transformation;
+	double			**inverse;
 	t_material		material;
 	int				type;
 	double			radius;
@@ -76,38 +75,31 @@ typedef struct s_shape
 	bool			closed;
 }					t_shape;
 
-typedef struct sphere
-{
-	int				id;
-	t_xyzvektor		origin;
-	double			radius;
-	double			**default_transformation;
-	t_material		material;
-}					t_sphere;
-
-typedef struct intersect
+typedef struct s_intersect
 {
 	t_ray			ray;
 	double			*times;
-	long double			u;
-	long double			v;
+	long double		u;
+	long double		v;
 	int				object_id;
 }					t_intersec;
 
-typedef struct intersections
+typedef struct s_intersections
 {
 	t_intersec		*intersections;
 	size_t			nr_intersections;
 	size_t			nr_intersection_entries;
+	size_t			allocated_intersections;
 }					t_all_intersec;
 
-typedef struct pointlight
+typedef struct s_pointlight
 {
 	t_xyzvektor		color;
+	double			brightness;
 	t_xyzvektor		position;
 }					t_light;
 
-typedef struct reflection_data_store
+typedef struct s_reflection_data_store
 {
 	t_xyzvektor		effective_color;
 	t_xyzvektor		materialcolor;
@@ -118,10 +110,12 @@ typedef struct reflection_data_store
 	t_xyzvektor		specular;
 	double			reflect_dot_eye;
 	double			factor;
+	double			shadow_factor;
+	double			light_dot_normale;
 	t_xyzvektor		reflectv;
 }					t_store;
 
-typedef struct canvas
+typedef struct s_canvas
 {
 	int				width;
 	int				height;
@@ -135,8 +129,9 @@ typedef struct canvas
 	t_light			*lightsource;
 	t_xyzvektor		normale;
 	t_xyzvektor		eyevector;
-	mlx_texture_t 	*bumpmap;
+	mlx_texture_t	*bumpmap;
 	mlx_image_t		*bumpmapcolor;
+	mlx_image_t		*image_to_free;
 }					t_c;
 
 typedef struct s_camera
@@ -176,5 +171,24 @@ typedef struct s_comp
 	long double		u;
 	long double		v;
 }					t_comp;
+
+typedef struct s_bump_map_normal
+{
+	t_xyzvektor	a;
+	t_xyzvektor	b;
+	int			x;
+	int			y;
+	float		center;
+	float		left;
+	float		right;
+	float		top;
+	float		bottom;
+	float		strength;
+	float		dx;
+	float		dy;
+	t_xyzvektor	tangent_x;
+	t_xyzvektor	tangent_y;
+	t_xyzvektor	bump_normal;
+}	t_bump_norm;
 
 #endif

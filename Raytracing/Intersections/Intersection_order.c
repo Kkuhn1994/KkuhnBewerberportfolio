@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:10:24 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/22 16:19:49 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:51:05 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	setup_new_intersect(t_c *canvas, t_intersec *new_intersection,
 		int nr_intersec, t_intersec *intersections_sorted)
 {
 	canvas->all_intersections.nr_intersections = nr_intersec;
-	intersections_sorted = MALLOC(nr_intersec * sizeof(t_intersec));
+	intersections_sorted = ft_calloc(nr_intersec, sizeof(t_intersec));
 	if (!intersections_sorted)
 		return (-1);
 	if (nr_intersec == 1)
@@ -69,6 +69,7 @@ int	save_intersection(t_c *canvas, t_intersec *new_intersection, int i, int j)
 	new_intersection_sorted = false;
 	old_intersections = canvas->all_intersections.intersections;
 	nr_intersec = canvas->all_intersections.nr_intersections + 1;
+	intersections_sorted = NULL;
 	if (!setup_new_intersect(canvas, new_intersection, nr_intersec,
 			intersections_sorted))
 		return (-1);
@@ -84,6 +85,5 @@ int	save_intersection(t_c *canvas, t_intersec *new_intersection, int i, int j)
 		else
 			intersections_sorted[i] = old_intersections[j++];
 	}
-	canvas->all_intersections.intersections = intersections_sorted;
-	return (0);
+	return (canvas->all_intersections.intersections = intersections_sorted, 0);
 }

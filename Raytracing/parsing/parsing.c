@@ -6,33 +6,38 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 16:54:58 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/24 17:29:51 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/20 14:11:58 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-void	look_for_double_uppercase(char **input, int A, int C, int L)
+void	look_for_double_uppercase(char **input, int a, int c, t_world *world)
 {
+	int	l;
+
+	l = 0;
 	while (*input)
 	{
 		if (*input[0] == 'A')
-			A++;
+			a++;
 		if (*input[0] == 'C')
-			C++;
+			c++;
 		if (*input[0] == 'L')
-			L++;
+			l++;
+		else if (*input[0] >= '0' && *input[0] <= '9')
+		{
+			bail("first characters needs to be char", 1, world);
+		}
 		input++;
 	}
-	if (A > 1 || C > 1)
+	if (a != 1 || c != 1 || l != 1)
 	{
-		write(2, "input contains double capital letter object",
-			ft_strlen("input contains double capital letter object"));
-		exit(0);
+		bail("wrong number of cameras, lights or ambient light", 1, world);
 	}
 }
 
-char	**process_file(char *file_name)
+char	**process_file(char *file_name, t_world *world)
 {
 	char	**input;
 	int		fd;
@@ -40,8 +45,12 @@ char	**process_file(char *file_name)
 	int		i;
 
 	i = 0;
+	if (ft_strncmp(&(file_name[ft_strlen(file_name) - 3]), ".rt", 3) != 0)
+		bail("only .rt files", 1, world);
 	fd = open(file_name, O_RDONLY);
-	input = MALLOC(100 * sizeof(char *));
+	if (fd == -1)
+		bail("file not found", 1, world);
+	input = ft_malloc(1000 * sizeof(char *));
 	if (!input)
 		return (NULL);
 	while (budget_get_next_line(fd, &line) > 0)
@@ -51,7 +60,7 @@ char	**process_file(char *file_name)
 	}
 	input[i] = line;
 	input[++i] = NULL;
-	look_for_double_uppercase(input, 0, 0, 0);
+	look_for_double_uppercase(input, 0, 0, world);
 	close(fd);
 	return (input);
 }
@@ -64,8 +73,8 @@ static void	free_input(char **input)
 	if (!input)
 		return ;
 	while (input[i])
-		FREE(input[i++]);
-	FREE(input);
+		ft_free(input[i++]);
+	ft_free(input);
 }
 
 static int	parse_line(t_world *world, char *line)
@@ -88,23 +97,22 @@ static int	parse_line(t_world *world, char *line)
 int	parse_input(char *file_name, t_world *world)
 {
 	char	**input;
+	char	*cleaned;
 	int		i;
 
 	i = 0;
-	input = process_file(file_name);
+	world->all_sorted = ft_calloc(sizeof(double *), 100);
+	if (!world->all_sorted)
+		return (1);
+	input = process_file(file_name, world);
 	if (!input)
 		return (1);
 	while (input[i])
 	{
-		if ((parse_line(world, input[i])))
+		cleaned = clean_input_line(input[i]);
+		if ((parse_line(world, cleaned)))
 			return (1);
-		else if (ft_strncmp(input[i], "co", 2) == 0)
-		{
-			if (parse_cone(world, input[i]))
-				return (1);
-		}
 		i++;
 	}
-	free_input(input);
-	return (0);
+	return (free_input(input), 0);
 }

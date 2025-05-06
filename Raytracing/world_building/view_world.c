@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   view_world.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 22:08:08 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/26 16:16:01 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/20 20:11:10 by kkuhn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ t_ray	ray_for_pixel(t_camera *cam, int px, int py)
 	pixel = multiply_vector_and_matrix(pixel, inv);
 	origin = multiply_vector_and_matrix(origin, inv);
 	ray.origin = origin;
-	if (inv)
-		free_double_ptr(inv, 4);
 	ray.direction = normalize(substraction(pixel, origin));
 	return (ray);
 }
@@ -51,12 +49,12 @@ t_camera	*camera(int hsize, int vsize, double field_of_view)
 	double		half_view;
 	double		aspect;
 
-	cam = MALLOC(sizeof(t_camera));
+	cam = ft_calloc(sizeof(t_camera), 1);
 	if (!cam)
 		return (NULL);
 	cam->hsize = hsize;
 	cam->vsize = vsize;
-	cam->field_of_view = field_of_view;
+	cam->field_of_view = field_of_view * (PI / 180);
 	half_view = tan(cam->field_of_view / 2);
 	aspect = (double)cam->hsize / (double)cam->vsize;
 	if (aspect >= 1)
@@ -82,9 +80,9 @@ double	**view_transform(t_xyzvektor from, t_xyzvektor to, t_xyzvektor up)
 	double		**translation_mat;
 
 	forward = normalize(substraction(to, from));
-	left = cross_product(forward, normalize(up));
-	true_up = cross_product(left, forward);
-	orientation = matrix(left, true_up, forward, set_vector(0, 0, 0, 1));
+	left = normalize(cross_product(forward, normalize(up)));
+	true_up = normalize(cross_product(left, forward));
+	orientation = matrix(left, true_up, forward);
 	translation_mat = translation(-from.x, -from.y, -from.z);
 	if (!orientation || !translation_mat)
 		return (NULL);
@@ -101,6 +99,7 @@ mlx_image_t	*render_image(t_camera *cam, t_world *world)
 
 	image = mlx_new_image(world->canvas->mlx_ptr, cam->hsize, cam->vsize);
 	y = 0;
+	ray = init_ray();
 	while (y < cam->vsize)
 	{
 		x = 0;

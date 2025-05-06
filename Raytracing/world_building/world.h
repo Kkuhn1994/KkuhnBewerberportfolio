@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   world.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 21:33:24 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/06 12:31:02 by kkuhn            ###   ########.fr       */
+/*   Updated: 2025/04/20 21:28:27 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ t_world		*get_world(int shapes);
 void		free_world(t_world *world);
 int			intersect_world(t_world *world, t_ray ray);
 t_intersec	*intersect(t_shape *shape, t_ray ray);
-t_comp	prepare_computations(t_intersec *intersection, t_ray ray,
-	t_shape *shape, t_world *world);
+t_comp		prepare_computations(t_intersec *intersection, t_ray ray,
+				t_shape *shape, t_world *world);
 t_xyzvektor	shade_hit(t_world *world, t_comp comp, t_shape shape);
 t_xyzvektor	color_at(t_world *world, t_ray ray);
 double		**view_transform(t_xyzvektor from, t_xyzvektor to, t_xyzvektor up);
@@ -56,22 +56,24 @@ t_shape		*new_shape(int type);
 double		dotProduct(t_xyzvektor a, t_xyzvektor b);
 t_xyzvektor	addition(t_xyzvektor a, t_xyzvektor b);
 t_xyzvektor	scalarMultiplication(t_xyzvektor a, double b);
-t_xyzvektor	lightning(t_comp comp, t_c canvas,
-	bool *in_shadow);
+t_xyzvektor	lightning(t_comp comp, t_c canvas, bool *in_shadow, t_world *world);
 t_ray		init_ray(void);
 double		magnitude(t_xyzvektor a);
 int			parse_input(char *file_name, t_world *world);
 void		free_double_ptr(double **a, int size);
 void		empty_intersections(t_c *canvas);
-double		**matrix(t_xyzvektor left, t_xyzvektor true_up, t_xyzvektor forward,
-				t_xyzvektor t);
-t_xyzvektor	calculate_normale(t_shape shape, t_xyzvektor point);
-t_xyzvektor	hit(t_all_intersec all_intersections, t_shape *shade);
+double		**matrix(t_xyzvektor left, t_xyzvektor true_up,
+				t_xyzvektor forward);
+t_xyzvektor	hit(t_all_intersec all_intersections, t_shape shape, size_t i,
+				double closest_t);
 void		empty_intersections(t_c *canvas);
+void		save_intersections(t_c *canvas, t_intersec *new_intersection,
+				t_world *world);
 // test
 bool		*is_shadowed(t_world *world, t_xyzvektor point, t_shape shape);
-void	sphere_ray_transform(t_shape shape, t_ray ray);
-int get_bumpmap_grayscale(mlx_texture_t *texture, int x, int y);
-void load_bumpmap(char *path, t_world *world);
+void		sphere_ray_transform(t_shape shape, t_ray ray);
+int			get_bumpmap_grayscale(mlx_texture_t *texture, int x, int y);
+void		load_bumpmap(char *path, t_world *world);
+t_xyzvektor	cone_normal(t_shape shape, t_xyzvektor point);
 
 #endif

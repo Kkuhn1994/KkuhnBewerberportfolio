@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cone_intersect.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 14:15:01 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/04 15:28:56 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/20 21:13:29 by kkuhn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	cut_cone(t_intersec *result, t_ray ray, t_shape shape)
 	}
 	tmp = ray.origin.y + result->times[0] * ray.direction.y;
 	if (0 > tmp || (shape.maximum) < tmp)
+	{
 		result->times[0] = -1;
+		result->times[1] = -1;
+	}
 	return ;
 }
 
@@ -88,7 +91,7 @@ int	cone_discrimination(double *discriminant_values, t_ray ray, t_shape cone,
 		* ray.direction.z - ray.direction.y * ray.direction.y * tan_theta
 		* tan_theta;
 	if (discriminant_values[0] > -EPSILON && discriminant_values[0] < EPSILON)
-		return (FREE(discriminant_values), 1);
+		return (ft_free(discriminant_values), 1);
 	discriminant_values[1] = 2 * ray.origin.x * ray.direction.x + 2
 		* ray.origin.z * ray.direction.z - 2 * ray.origin.y * ray.direction.y
 		* tan_theta * tan_theta;
@@ -97,7 +100,7 @@ int	cone_discrimination(double *discriminant_values, t_ray ray, t_shape cone,
 	discriminant = discriminant_values[1] * discriminant_values[1] - 4
 		* discriminant_values[0] * discriminant_values[2];
 	if (discriminant < 0)
-		return (FREE(discriminant_values), 1);
+		return (ft_free(discriminant_values), 1);
 	result->times[0] = (-discriminant_values[1] - sqrt(discriminant)) / (2
 			* discriminant_values[0]);
 	result->times[1] = (-discriminant_values[1] + sqrt(discriminant)) / (2
@@ -109,27 +112,15 @@ int	cone_discrimination(double *discriminant_values, t_ray ray, t_shape cone,
 t_intersec	*cone_intersect(t_intersec *result, t_ray ray, t_shape cone)
 {
 	double	*discriminant_values;
-	double	discriminant;
-	double	**rotation;
 
-	rotation = MALLOC(sizeof(double *) * 3);
-	rotation[0] = MALLOC(sizeof(double) * 3);
-	rotation[1] = MALLOC(sizeof(double) * 3);
-	rotation[2] = MALLOC(sizeof(double) * 3);
-	create_rotation_matrix(cone.normal, rotation);
-	// ray.origin.y -= cone.maximum;
-	transform_ray(&ray, rotation);
-	// ray.origin.y -= cone.maximum;
-	discriminant_values = MALLOC(3 * sizeof(double));
-	result->times = MALLOC(2 * sizeof(double));
+	discriminant_values = ft_calloc(3, sizeof(double));
+	result->times = ft_calloc(2, sizeof(double));
 	if (cone_discrimination(discriminant_values, ray, cone, result))
 		return (NULL);
 	cut_cone(result, ray, cone);
 	if (result->times[0] == -1)
 		cap_top(result, ray, cone);
-	if (result->times[1] == -1)
-		cap_bottom(result, ray, cone);
-	FREE(discriminant_values);
+	ft_free(discriminant_values);
 	return (result);
 }
 

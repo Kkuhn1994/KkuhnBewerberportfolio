@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:26:19 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/27 20:35:56 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/04 19:29:32 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,6 @@ t_light	default_light(void)
 	source.color = color;
 	source.position = position;
 	return (source);
-}
-
-t_sphere	new_sphere(void)
-{
-	t_sphere	result;
-
-	result.origin.x = 0;
-	result.origin.y = 0;
-	result.origin.z = 0;
-	result.origin.w = 1;
-	result.radius = 1;
-	result.default_transformation = get_identity_matrix();
-	result.id = g_globalid;
-	result.material = default_material();
-	g_globalid++;
-	return (result);
 }
 
 t_xyzvektor	set_black(void)

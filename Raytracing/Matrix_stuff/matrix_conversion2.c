@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:25:10 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/22 16:25:15 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ double	**invert_matrix(double **a, int size)
 
 	determinante = get_determinant_of_bigger_matrix(a, size);
 	if (determinante == 0)
-		return (0);
-	result = MALLOC(size * (sizeof(double *)));
+		return (a);
+	result = ft_malloc(size * (sizeof(double *)));
 	i = -1;
 	while (++i < size)
-		result[i] = MALLOC(size * (sizeof(double)));
+		result[i] = ft_malloc(size * (sizeof(double)));
 	i = -1;
 	j = -1;
 	while (++i < size)
@@ -64,10 +64,13 @@ void	free_double_ptr(double **a, int size)
 	int	i;
 
 	i = 0;
-	while (i < size)
+	if (a)
 	{
-		FREE(a[i]);
-		i++;
+		while (a && i < size && a[i])
+		{
+			ft_free(a[i]);
+			i++;
+		}
+		ft_free(a);
 	}
-	FREE(a);
 }

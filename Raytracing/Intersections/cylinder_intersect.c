@@ -6,63 +6,49 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:12:29 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/04 14:35:16 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:58:47 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
 
-void	create_rotation_matrix(t_xyzvektor normal, double **rotation)
+void	handle_no_nw(double nw, t_xyzvektor *new_orig)
 {
-	double	axis[3];
-	double	dot;
-	double	c[3];
-	double	sin_theta;
-	double	cos_theta;
-
-	axis[0] = 0.0;
-	axis[1] = 1.0;
-	axis[2] = 0.0;
-	dot = normal.x * axis[0] + normal.y * axis[1] + normal.z * axis[2];
-	c[0] = normal.y * axis[2] - normal.z * axis[1];
-	c[1] = normal.z * axis[0] - normal.x * axis[2];
-	c[2] = normal.x * axis[1] - normal.y * axis[0];
-	sin_theta = sqrt(c[0] * c[0] + c[1] * c[1] + c[2] * c[2]);
-	cos_theta = dot;
-	rotation[0][0] = cos_theta + c[0] * c[0] * (1 - cos_theta);
-	rotation[0][1] = c[0] * c[1] * (1 - cos_theta) - c[2] * sin_theta;
-	rotation[0][2] = c[0] * c[2] * (1 - cos_theta) + c[1] * sin_theta;
-	rotation[1][0] = c[1] * c[0] * (1 - cos_theta) + c[2] * sin_theta;
-	rotation[1][1] = cos_theta + c[1] * c[1] * (1 - cos_theta);
-	rotation[1][2] = c[1] * c[2] * (1 - cos_theta) - c[0] * sin_theta;
-	rotation[2][0] = c[2] * c[0] * (1 - cos_theta) - c[1] * sin_theta;
-	rotation[2][1] = c[2] * c[1] * (1 - cos_theta) + c[0] * sin_theta;
-	rotation[2][2] = cos_theta + c[2] * c[2] * (1 - cos_theta);
+	if (nw != 0.0)
+	{
+		(*new_orig).x /= nw;
+		(*new_orig).y /= nw;
+		(*new_orig).z /= nw;
+	}
 }
 
-void	transform_ray(t_ray *ray, double **rotation)
+void	transform_ray(t_ray *ray, double **matrix)
 {
-	double	origin[3];
-	double	direction[3];
+	t_xyzvektor	orig;
+	t_xyzvektor	dir;
+	t_xyzvektor	new_orig;
+	t_xyzvektor	new_dir;
+	double		nw;
 
-	origin[0] = ray->origin.x;
-	origin[1] = ray->origin.y;
-	origin[2] = ray->origin.z;
-	direction[0] = ray->direction.x;
-	direction[1] = ray->direction.y;
-	direction[2] = ray->direction.z;
-	ray->origin.x = rotation[0][0] * origin[0] + rotation[0][1] * origin[1]
-		+ rotation[0][2] * origin[2];
-	ray->origin.y = rotation[1][0] * origin[0] + rotation[1][1] * origin[1]
-		+ rotation[1][2] * origin[2];
-	ray->origin.z = rotation[2][0] * origin[0] + rotation[2][1] * origin[1]
-		+ rotation[2][2] * origin[2];
-	ray->direction.x = rotation[0][0] * direction[0] + rotation[0][1]
-		* direction[1] + rotation[0][2] * direction[2];
-	ray->direction.y = rotation[1][0] * direction[0] + rotation[1][1]
-		* direction[1] + rotation[1][2] * direction[2];
-	ray->direction.z = rotation[2][0] * direction[0] + rotation[2][1]
-		* direction[1] + rotation[2][2] * direction[2];
+	orig = ray->origin;
+	new_orig.x = matrix[0][0] * orig.x + matrix[0][1] * orig.y + matrix[0][2]
+		* orig.z + matrix[0][3] * 1.0;
+	new_orig.y = matrix[1][0] * orig.x + matrix[1][1] * orig.y + matrix[1][2]
+		* orig.z + matrix[1][3] * 1.0;
+	new_orig.z = matrix[2][0] * orig.x + matrix[2][1] * orig.y + matrix[2][2]
+		* orig.z + matrix[2][3] * 1.0;
+	nw = matrix[3][0] * orig.x + matrix[3][1] * orig.y + matrix[3][2] * orig.z
+		+ matrix[3][3] * 1.0;
+	handle_no_nw(nw, &new_orig);
+	ray->origin = new_orig;
+	dir = ray->direction;
+	new_dir.x = matrix[0][0] * dir.x + matrix[0][1] * dir.y + matrix[0][2]
+		* dir.z;
+	new_dir.y = matrix[1][0] * dir.x + matrix[1][1] * dir.y + matrix[1][2]
+		* dir.z;
+	new_dir.z = matrix[2][0] * dir.x + matrix[2][1] * dir.y + matrix[2][2]
+		* dir.z;
+	ray->direction = new_dir;
 }
 
 void	cut_cylinder(t_intersec *result, t_ray ray, t_shape shape)
@@ -92,7 +78,7 @@ double	get_discriminant(double *discriminant_values, t_ray ray,
 	discriminant_values[0] = ray.direction.x * ray.direction.x + ray.direction.z
 		* ray.direction.z;
 	if (discriminant_values[0] > -EPSILON && discriminant_values[0] < EPSILON)
-		return (FREE(discriminant_values), -1);
+		return (ft_free(discriminant_values), -1);
 	discriminant_values[1] = 2 * ray.origin.x * ray.direction.x + 2
 		* ray.origin.z * ray.direction.z;
 	discriminant_values[2] = ray.origin.x * ray.origin.x + ray.origin.z
@@ -100,7 +86,7 @@ double	get_discriminant(double *discriminant_values, t_ray ray,
 	discriminant = discriminant_values[1] * discriminant_values[1] - 4
 		* discriminant_values[0] * discriminant_values[2];
 	if (discriminant < 0)
-		return (FREE(discriminant_values), -1);
+		return (ft_free(discriminant_values), -1);
 	result->times[0] = (-discriminant_values[1] - sqrt(discriminant)) / (2
 			* discriminant_values[0]);
 	result->times[1] = (-discriminant_values[1] + sqrt(discriminant)) / (2
@@ -113,24 +99,17 @@ t_intersec	*cylinder_intersect(t_intersec *result, t_ray ray, t_shape cylinder)
 {
 	double	*discriminant_values;
 	double	discriminant;
-	double	**rotation;
 
-	rotation = MALLOC(sizeof(double *) * 3);
-	rotation[0] = MALLOC(sizeof(double) * 3);
-	rotation[1] = MALLOC(sizeof(double) * 3);
-	rotation[2] = MALLOC(sizeof(double) * 3);
-	create_rotation_matrix(cylinder.normal, rotation);
-	transform_ray(&ray, rotation);
-	discriminant_values = MALLOC(3 * sizeof(double));
-	result->times = MALLOC(2 * sizeof(double));
+	discriminant_values = ft_calloc(3, sizeof(double));
+	result->times = ft_calloc(2, sizeof(double));
 	discriminant = get_discriminant(discriminant_values, ray, cylinder, result);
 	if (discriminant == -1)
 		return (NULL);
 	cut_cylinder(result, ray, cylinder);
-	if (result->times[0] == -1)
+	if (cylinder.closed)
 		cap_top(result, ray, cylinder);
-	if (result->times[1] == -1)
+	if (cylinder.closed)
 		cap_bottom(result, ray, cylinder);
-	FREE(discriminant_values);
+	ft_free(discriminant_values);
 	return (result);
 }

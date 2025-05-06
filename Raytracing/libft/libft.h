@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:51:31 by kkuhn             #+#    #+#             */
-/*   Updated: 2025/03/24 18:00:37 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/20 12:17:55 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_list
 {
 	void			*content;
+	size_t			size;
 	struct s_list	*next;
 }					t_list;
 

@@ -6,11 +6,19 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:10:17 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/24 16:27:51 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/17 23:25:51 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
+
+t_xyzvektor	ray_position(t_ray ray, double time)
+{
+	t_xyzvektor	result;
+
+	result = addition(ray.origin, scalar_multiplication(ray.direction, time));
+	return (result);
+}
 
 t_xyzvektor	identify_hit(t_all_intersec all_intersections)
 {

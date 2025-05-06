@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:40:51 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/03 21:12:03 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/20 12:17:42 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*get_adress_of_list(void)
 	return (&list);
 }
 
-void	FREE(void *data)
+void	ft_free(void *data)
 {
 	t_list	*list;
 	t_list	*current;
@@ -44,7 +44,7 @@ void	FREE(void *data)
 	}
 }
 
-void	*MALLOC(int size)
+void	*ft_malloc(int size)
 {
 	t_list	*list;
 	void	*content;
@@ -62,33 +62,10 @@ void	*MALLOC(int size)
 		return (NULL);
 	}
 	new_node->content = content;
+	new_node->size = size;
 	new_node->next = list->next;
 	list->next = new_node;
 	return (content);
-}
-
-void	*rt_realloc(void *ptr, int new_size)
-{
-	t_list	*lst;
-	t_list	*current;
-	void	*new_ptr;
-
-	lst = get_adress_of_list();
-	current = lst->next;
-	if (!ptr)
-		return (MALLOC(new_size));
-	while (current)
-	{
-		if (current->content == ptr)
-		{
-			new_ptr = realloc(ptr, new_size);
-			if (new_ptr)
-				current->content = new_ptr;
-			return (new_ptr);
-		}
-		current = current->next;
-	}
-	return (realloc(ptr, new_size));
 }
 
 void	__attribute__((destructor))	free_list(void)

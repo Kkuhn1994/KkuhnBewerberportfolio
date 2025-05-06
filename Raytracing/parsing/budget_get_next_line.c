@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:10:22 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/22 16:29:33 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	budget_get_next_line(int fd, char **line)
 	int		ret;
 	char	*temp;
 
-	*line = MALLOC(5);
+	*line = ft_malloc(5);
 	if (!*line)
 		return (-1);
 	(*line)[0] = '\0';
@@ -30,10 +30,10 @@ int	budget_get_next_line(int fd, char **line)
 			return (1);
 		temp = *line;
 		*line = ft_strjoin(*line, buffer);
-		FREE(temp);
+		ft_free(temp);
 		ret = read(fd, buffer, 1);
 		if (ret < 0 || !*line)
-			return (FREE(*line), -1);
+			return (ft_free(*line), -1);
 	}
 	if (ret == 0)
 		return (0);

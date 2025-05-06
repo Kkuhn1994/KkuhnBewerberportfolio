@@ -6,7 +6,7 @@
 /*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:23:11 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/06 12:27:12 by kkuhn            ###   ########.fr       */
+/*   Updated: 2025/04/20 15:32:29 by kkuhn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,20 @@ t_light		default_light(void);
 t_material	default_material(void);
 void		free_double_ptr(double **a, int size);
 void		show_matrix(double **a, int size);
-void		*MALLOC(int size);
-void		FREE(void *data);
+void		*ft_malloc(int size);
+void		ft_free(void *data);
+void		bail(char *str, int code, t_world *world);
 
 // sphere
 void		set_transform(t_shape *shape, double **translation);
 t_material	default_material(void);
+void		uv_of_sphere(t_intersec *intersect, t_comp *comps, t_shape *shape,
+				t_world world);
+void		change_normal_for_bump(t_comp *comp, t_intersec *intersection,
+				t_world *world);
+int			get_bumpmap_grayscale(mlx_texture_t *texture, int x, int y);
+void		orthogonale_vektoren(t_xyzvektor x, t_xyzvektor *y, t_xyzvektor *z,
+				t_world *world);
 
 // ray
 t_xyzvektor	calculate_reflection(t_xyzvektor in, t_xyzvektor normale);
@@ -104,12 +112,13 @@ t_xyzvektor	set_black(void);
 t_light		default_light(void);
 t_material	default_material(void);
 
-t_xyzvektor	lightning(t_comp comp, t_c canvas,
-	bool *in_shadow);
+t_xyzvektor	lightning(t_comp comp, t_c canvas, bool *in_shadow, t_world *world);
 t_xyzvektor	calculate_reflection(t_xyzvektor in, t_xyzvektor normale);
 t_shape		*new_shape(int type);
 t_xyzvektor	calculate_wall_coordinate(int x, int y, double pixel_size,
 				double half);
 t_xyzvektor	pattern_at(t_shape shape, t_xyzvektor point);
+t_xyzvektor	get_color(t_c canvas, t_shape shape, long double x, long double y);
+void		cut_cylinder(t_intersec *result, t_ray ray, t_shape shape);
 
 #endif

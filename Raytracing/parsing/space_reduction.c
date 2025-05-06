@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dev_tools.c                                        :+:      :+:    :+:   */
+/*   space_reduction.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:54:09 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/24 17:54:11 by qhahn            ###   ########.fr       */
+/*   Created: 2025/04/17 15:48:18 by qhahn             #+#    #+#             */
+/*   Updated: 2025/04/17 16:54:35 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "parsing.h"
 
-void	show_matrix(double **a, int size)
+char	*clean_input_line(char *line)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	int		res_index;
+	char	*result;
 
 	i = 0;
+	res_index = 0;
 	j = 0;
-	while (i < size)
+	result = ft_strdup(line);
+	while (line[i])
 	{
-		while (j < size)
+		if (line[i] == ' ')
 		{
-			printf("%f ", a[i][j]);
-			j++;
+			j = 0;
+			while (line[i + j] == ' ')
+				j++;
+			if (i != 0)
+				i--;
+			i += j;
 		}
-		printf("\n");
-		j = 0;
+		result[res_index] = line[i];
 		i++;
+		res_index++;
 	}
-}
-
-void	show_vector(t_xyzvektor a)
-{
-	printf("%f %f %f %f", a.x, a.y, a.z, a.w);
+	return (result[res_index] = '\0', result);
 }

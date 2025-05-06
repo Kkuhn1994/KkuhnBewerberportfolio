@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:17:45 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/24 16:36:57 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/20 14:39:20 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,26 @@ void	assign_to_mat(double **mat, t_xyzvektor left, t_xyzvektor true_up,
 	mat[2][3] = 0;
 }
 
-double	**matrix(t_xyzvektor left, t_xyzvektor true_up, t_xyzvektor forward,
-		t_xyzvektor t)
+double	**matrix(t_xyzvektor left, t_xyzvektor true_up, t_xyzvektor forward)
 {
 	double	**mat;
 	int		i;
 
-	mat = (double **)MALLOC(4 * sizeof(double *));
+	mat = (double **)ft_malloc(4 * sizeof(double *));
 	if (!mat)
 		return (NULL);
-	i = -1;
-	while (++i < 4)
+	i = 0;
+	while (i < 4)
 	{
-		mat[i] = (double *)MALLOC(4 * sizeof(double));
+		mat[i] = (double *)ft_malloc(4 * sizeof(double));
 		if (!mat[i])
 			return (NULL);
+		i++;
 	}
 	assign_to_mat(mat, left, true_up, forward);
-	mat[3][0] = t.x;
-	mat[3][1] = t.y;
-	mat[3][2] = t.z;
-	mat[3][3] = t.w;
+	mat[3][0] = 0;
+	mat[3][1] = 0;
+	mat[3][2] = 0;
+	mat[3][3] = 1;
 	return (mat);
 }

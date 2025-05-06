@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:26:20 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/22 16:27:11 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/06 17:45:50 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,10 @@ double	**scaling(double x, double y, double z)
 	return (result);
 }
 
-double	**rotation_x(double degree)
+double	**rotation_x(double radians)
 {
-	double	radians;
 	double	**result;
 
-	radians = degree / 180 * PI;
 	result = get_identity_matrix();
 	result[1][1] = cos(radians);
 	result[1][2] = -sin(radians);
@@ -53,12 +51,10 @@ double	**rotation_x(double degree)
 	return (result);
 }
 
-double	**rotation_y(double degree)
+double	**rotation_y(double radians)
 {
-	double	radians;
 	double	**result;
 
-	radians = degree / 180 * PI;
 	result = get_identity_matrix();
 	result[0][0] = cos(radians);
 	result[0][2] = sin(radians);

@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:25:28 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/24 16:27:51 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ double	**multiply_matrix(double **a, double **b)
 	int		column;
 
 	row = -1;
-	result = MALLOC(4 * (sizeof(double *)));
+	result = ft_malloc(4 * (sizeof(double *)));
 	while (++row < 4)
-		result[row] = MALLOC(4 * (sizeof(double)));
+		result[row] = ft_malloc(4 * (sizeof(double)));
 	if (!result)
 		return (NULL);
 	row = -1;

@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:20:45 by qhahn             #+#    #+#             */
-/*   Updated: 2025/03/22 16:21:06 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ double	**transpose_matrix(double **a, int size)
 	int		i;
 	int		j;
 
-	result = MALLOC(size * (sizeof(double *)));
+	result = ft_malloc(size * (sizeof(double *)));
 	i = -1;
 	while (++i < size)
-		result[i] = MALLOC(size * (sizeof(double)));
+		result[i] = ft_malloc(size * (sizeof(double)));
 	i = 0;
 	j = 0;
 	while (i < size)

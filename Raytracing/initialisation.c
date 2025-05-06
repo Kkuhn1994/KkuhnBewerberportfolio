@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkuhn <kkuhn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:29:16 by qhahn             #+#    #+#             */
-/*   Updated: 2025/04/06 16:04:48 by kkuhn            ###   ########.fr       */
+/*   Updated: 2025/04/20 13:22:57 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	init_canvas(t_c *canvas)
 {
 	canvas->worldheight = 8;
-	canvas->height = 500;
-	canvas->width = 500;
+	canvas->height = 200;
+	canvas->width = 200;
 	canvas->mlx_ptr = mlx_init(canvas->width, canvas->height, "miniRT", false);
 	canvas->pixel_size = canvas->height / canvas->worldheight;
 	canvas->half_size = canvas->worldheight / 2;
@@ -42,4 +42,29 @@ t_ray	init_ray(void)
 	ray.origin = origin;
 	ray.direction = direction;
 	return (ray);
+}
+
+void	bail(char *str, int code, t_world *world)
+{
+	write(2, "Error\n", 6);
+	write(2, str, ft_strlen(str));
+	write(2, "\n", 1);
+	if (world->canvas)
+	{
+		if (world->canvas->mlx_ptr)
+		{
+			if (world->canvas->image_to_free)
+				mlx_delete_image(world->canvas->mlx_ptr,
+					world->canvas->image_to_free);
+			if (world->canvas->bumpmapcolor)
+				mlx_delete_image(world->canvas->mlx_ptr,
+					world->canvas->bumpmapcolor);
+			if (world->canvas->img)
+				mlx_delete_image(world->canvas->mlx_ptr, world->canvas->img);
+			if (world->canvas->bumpmap)
+				mlx_delete_texture(world->canvas->bumpmap);
+			mlx_terminate(world->canvas->mlx_ptr);
+		}
+	}
+	exit(code);
 }

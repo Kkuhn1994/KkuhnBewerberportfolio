@@ -6,7 +6,7 @@
 /*   By: qhahn <qhahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 21:14:55 by kkuhn             #+#    #+#             */
-/*   Updated: 2025/04/03 21:12:52 by qhahn            ###   ########.fr       */
+/*   Updated: 2025/04/19 20:59:02 by qhahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*ft_specialcase2(int n, char *number)
 {
 	int	j;
 
-	number = (char *) MALLOC (ft_digitcount(n) + 2);
+	number = (char *) ft_malloc (ft_digitcount(n) + 2);
 	if (number == 0)
 		return (0);
 	j = ft_digitcount(n);
@@ -48,7 +48,7 @@ static char	*ft_specialcase(int n, char *number)
 {
 	if (n == INT_MIN)
 	{
-		number = (char *) MALLOC (12 * sizeof(char));
+		number = (char *) ft_malloc (12 * sizeof(char));
 		if (number == 0)
 			return (0);
 		ft_strlcpy(number, "-2147483648", 12);
@@ -57,7 +57,7 @@ static char	*ft_specialcase(int n, char *number)
 	n = -n;
 	if (n == 0)
 	{
-		number = (char *) MALLOC (2);
+		number = (char *) ft_malloc (2);
 		if (number == 0)
 			return (0);
 		number[0] = '0';
@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 	number = 0;
 	if (n <= 0)
 		return (ft_specialcase(n, number));
-	number = (char *) MALLOC (ft_digitcount(n) + 1);
+	number = (char *) ft_malloc (ft_digitcount(n) + 1);
 	if (number == 0)
 		return (0);
 	j = ft_digitcount(n) - 1;
